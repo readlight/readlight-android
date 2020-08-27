@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Readlight</string>
+    <string name="text_email">이메일</string>
+    <string name="text_password">비밀번호</string>
+    <string name="text_login_with_kakao">카카오로 로그인</string>
+    <string name="text_login_with_email">이메일로 로그인</string>
+    <string name="text_logo">logo</string>
+    <string name="text_already_have_account">계정이 이미 있으신가요?</string>
+    <string name="text_start_with_kakao">카카오로 시작하기</string>
+    <string name="text_start_with_email">이메일로 시작하기</string>
+    <string name="text_kakao_logo">kakao_logo</string>
+    <string name="hint_pls_write_email" tools:ignore="TypographyEllipsis">이메일을 입력해 주세요...</string>
+    <string name="text_sign_up">가입하기</string>
+    <string name="hint_pls_write_password">비밀번호를 입력해주세요...</string>
+    <string name="text_name">이름</string>
+    <string name="hint_pls_write_name">이름을 입력해주세요...</string>
+    <string name="text_phone">전화번호</string>
+    <string name="hint_pls_write_phone">전화번호를 입력해주세요...</string>
+</resources>
