@@ -16,4 +16,6 @@
     <string name="hint_pls_write_name">이름을 입력해주세요...</string>
     <string name="text_phone">전화번호</string>
     <string name="hint_pls_write_phone">전화번호를 입력해주세요...</string>
+    <string name="text_agree_term"><u>이용약관 동의</u></string>
+    <string name="text_agree_alram_term"><u>(선택) 이벤트 및 야간 알림동의</u></string>
 </resources>

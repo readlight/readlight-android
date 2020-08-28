@@ -8,10 +8,10 @@ import com.readlab.readlight.databinding.ActivitySignupBinding
 import com.readlab.readlight.domain.repositories.SignInQuery
 import kotlinx.android.synthetic.main.activity_main.signUpButton
 import kotlinx.android.synthetic.main.activity_signup.*
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.android.ext.android.inject
 
 class SignUpActivity : AppCompatActivity() {
-    private val signViewModel: SignUpViewModel by viewModel()
+    private val signViewModel: SignUpViewModel by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

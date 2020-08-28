@@ -21,7 +21,7 @@ class App : Application() {
         startKoin {
             androidLogger(Level.ERROR)
             androidContext(this@App)
-            modules(mRepository, mNetworkModules, mUseCases, mViewModels)
+            modules(mNetworkModules, mRepository, mUseCases, mViewModels)
         }
 
         KakaoSdk.init(this, BuildConfig.KAKAO_API_KEY)

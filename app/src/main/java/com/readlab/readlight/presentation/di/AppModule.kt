@@ -3,9 +3,9 @@ package com.readlab.readlight.presentation.di
 import com.readlab.readlight.data.api.UserApi
 import com.readlab.readlight.data.repositories.UserRepositoryImpl
 import com.readlab.readlight.domain.model.Response
+import com.readlab.readlight.domain.repositories.UserRepository
 import com.readlab.readlight.domain.usecase.UserUseCase
 import com.readlab.readlight.presentation.common.AsyncFlowableTransformer
-import com.readlab.readlight.presentation.network.ReadLightAuthInterceptor
 import com.readlab.readlight.presentation.network.httpClient
 import com.readlab.readlight.presentation.network.retrofitClient
 import com.readlab.readlight.presentation.ui.signup.SignUpViewModel
@@ -15,7 +15,7 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 
 val mRepository = module {
-    single(named(USER_REPOSITORY)) { UserRepositoryImpl(get(named(USER_API))) }
+    single<UserRepository>(named(USER_REPOSITORY)) { UserRepositoryImpl(get(named(USER_API))) }
 }
 
 val mUseCases = module {
@@ -24,13 +24,13 @@ val mUseCases = module {
             repository = get(named(USER_REPOSITORY)),
             transformer = AsyncFlowableTransformer<Response>()
         )
-    } //뉴스 UseCase
+    }
 }
 
 val mNetworkModules = module {
-    single(named(READLIGHT_HTTP)) { httpClient(ReadLightAuthInterceptor()) }
+    single(named(READLIGHT_HTTP)) { httpClient() }
     single(named(READLIGHT_CLIENT)) { retrofitClient(BASE_URL, get(named(READLIGHT_HTTP))) }
-    single(named(USER_API)) { (get(named(READLIGHT_CLIENT)) as Retrofit).create(UserApi::class.java) }
+    single<UserApi>(named(USER_API)) { (get(named(READLIGHT_CLIENT)) as Retrofit).create(UserApi::class.java) }
 }
 
 val mViewModels = module {

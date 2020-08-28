@@ -16,6 +16,7 @@ class ReadLightAuthInterceptor : Interceptor {
         val request = builder
             .addHeader("Authorization", authHeader)
             .addHeader("accept", "application/json; charset=utf-8")
+            .removeHeader("Content-Type")
             .addHeader("Content-Type", "application/x-www-form-urlencoded; charset=utf-8")
             .build()
 

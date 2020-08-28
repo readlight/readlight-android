@@ -9,7 +9,7 @@ import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-fun httpClient(interceptor: Interceptor): OkHttpClient {
+fun httpClient(interceptor: Interceptor = ReadLightAuthInterceptor()): OkHttpClient {
     val httpLoggingInterceptor = HttpLoggingInterceptor(HttpLoggingInterceptor.Logger.DEFAULT)
     val clientBuilder = OkHttpClient.Builder()
 
@@ -24,9 +24,10 @@ fun httpClient(interceptor: Interceptor): OkHttpClient {
     return clientBuilder.build()
 }
 
-fun retrofitClient(baseUrl: String, client: OkHttpClient): Retrofit = Retrofit.Builder()
-    .baseUrl(baseUrl)
-    .client(client)
-    .addConverterFactory(GsonConverterFactory.create())
-    .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-    .build()
+fun retrofitClient(baseUrl: String, client: OkHttpClient): Retrofit =
+    Retrofit.Builder()
+        .baseUrl(baseUrl)
+        .client(client)
+        .addConverterFactory(GsonConverterFactory.create())
+        .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+        .build()
