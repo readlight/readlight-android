@@ -9,7 +9,9 @@ import com.readlab.readlight.presentation.common.BaseViewModel
 class SignUpViewModel(private val userUseCase: UserUseCase) : BaseViewModel() {
     val userQuery = MutableLiveData<SignInQuery>(SignInQuery())
 
-    fun signIn(query: SignInQuery) {
+    fun signIn() {
+        val query = userQuery.value ?: return
+
         val disposable = userUseCase
             .postSignIn(query)
             .subscribe({ response ->

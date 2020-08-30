@@ -5,9 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.readlab.readlight.R
 import com.readlab.readlight.databinding.ActivitySignupBinding
-import com.readlab.readlight.domain.repositories.SignInQuery
-import kotlinx.android.synthetic.main.activity_main.signUpButton
-import kotlinx.android.synthetic.main.activity_signup.*
+import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 
 class SignUpActivity : AppCompatActivity() {
@@ -21,21 +19,7 @@ class SignUpActivity : AppCompatActivity() {
         binding.vm = signViewModel
 
         signUpButton.setOnClickListener {
-            val query = SignInQuery(
-                nameEdit.text.toString(),
-                emailEdit.text.toString(),
-                passwordEdit.text.toString(),
-                phoneNumberEdit.text.toString()
-            )
-
-            signViewModel.signIn(
-                SignInQuery(
-                    nameEdit.text.toString(),
-                    emailEdit.text.toString(),
-                    passwordEdit.text.toString(),
-                    phoneNumberEdit.text.toString()
-                )
-            )
+            signViewModel.signIn()
         }
     }
 }

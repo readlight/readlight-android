@@ -8,7 +8,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 
 class AsyncFlowableTransformer<T> : SingleRxTransformer<T>() {
     override fun apply(upstream: Single<T>): SingleSource<T> {
-        return upstream.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+        return upstream.async()
     }
 }
 
