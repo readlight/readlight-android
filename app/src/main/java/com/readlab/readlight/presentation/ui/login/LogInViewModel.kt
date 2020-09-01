@@ -1,26 +1,23 @@
-package com.readlab.readlight.presentation.ui.signup
+package com.readlab.readlight.presentation.ui.login
 
 import androidx.lifecycle.MutableLiveData
 import com.orhanobut.logger.Logger
-import com.readlab.readlight.domain.repositories.SignUpQuery
+import com.readlab.readlight.domain.repositories.LogInQuery
 import com.readlab.readlight.domain.usecase.UserUseCase
 import com.readlab.readlight.presentation.common.BaseViewModel
 
-class SignUpViewModel(private val userUseCase: UserUseCase) : BaseViewModel() {
-    val email = MutableLiveData<String>("")
-    val password = MutableLiveData<String>("")
-    val name = MutableLiveData<String>("")
-    val phone = MutableLiveData<String>("")
+class LogInViewModel(private val userUseCase: UserUseCase) : BaseViewModel() {
+    val loginQuery = MutableLiveData<LogInQuery>(LogInQuery())
 
-    val userQuery = SignUpQuery()
+    fun logIn() {
+        val query = loginQuery.value ?: return
 
-    fun signUp() {
         val disposable = userUseCase
-            .postSignUp(userQuery)
+            .postLogIn(query)
             .subscribe({ response ->
                 Logger.d("On Next Called: $response")
                 if (response != null) {
-                    Logger.d("Sign In Success")
+                    Logger.d("Log In Success")
                 } else {
                     Logger.d("Response is null!")
                 }

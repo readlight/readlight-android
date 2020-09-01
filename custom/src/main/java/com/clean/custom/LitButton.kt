@@ -10,11 +10,11 @@ class LitButton : AppCompatButton {
         set(able) {
             field = able
             if (able) {
-                isClickable = true
+                isEnabled = true
                 setBackgroundResource(R.drawable.shape_round_accent)
                 setTextColor(context.getColor(R.color.colorPrimary))
             } else {
-                isClickable = false
+                isEnabled = false
                 setBackgroundResource(R.drawable.shape_round_gray)
                 setTextColor(context.getColor(R.color.colorGray))
             }

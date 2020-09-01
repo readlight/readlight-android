@@ -2,6 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="vm"
+            type="com.readlab.readlight.presentation.ui.login.LogInViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -61,6 +68,7 @@
                             android:inputType="textEmailAddress"
                             android:paddingStart="14dp"
                             android:paddingEnd="14dp"
+                            android:text="@={vm.loginQuery.email}"
                             android:textSize="16sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -99,15 +107,17 @@
                             android:inputType="textPassword"
                             android:paddingStart="14dp"
                             android:paddingEnd="14dp"
+                            android:text="@={vm.loginQuery.password}"
                             android:textSize="16sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <TextView
                         android:id="@+id/forgetPasswordButton"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:layout_gravity="end"
                         android:fontFamily="@font/noto_medium"
                         android:includeFontPadding="false"
                         android:text="@string/text_forget_password"
@@ -122,6 +132,7 @@
                         android:padding="18dp"
                         android:text="@string/text_login"
                         android:theme="@style/BaseButton"
+                        android:onClick="@{() -> vm.logIn()}"
                         app:able="true" />
 
                 </LinearLayout>

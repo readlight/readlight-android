@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="vm"
             type="com.readlab.readlight.presentation.ui.signup.SignUpViewModel" />
@@ -51,16 +50,18 @@
                         android:textSize="16sp" />
 
                     <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/emailInputLayout"
                         android:layout_width="match_parent"
-                        android:layout_height="55dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:padding="0dp"
+                        app:errorEnabled="true"
                         app:hintEnabled="false">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/emailEdit"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="55dp"
                             android:autofillHints="@string/hint_pls_write_email"
                             android:background="@drawable/shape_round_edit"
                             android:fontFamily="@font/noto_regular"
@@ -68,7 +69,7 @@
                             android:inputType="textEmailAddress"
                             android:paddingStart="14dp"
                             android:paddingEnd="14dp"
-                            android:text="@={vm.userQuery.email}"
+                            android:text="@={vm.email}"
                             android:textSize="16sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -78,7 +79,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="4dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -90,16 +91,19 @@
                         android:textSize="16sp" />
 
                     <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/passwordInputLayout"
                         android:layout_width="match_parent"
-                        android:layout_height="55dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:padding="0dp"
+                        app:endIconMode="password_toggle"
+                        app:errorEnabled="true"
                         app:hintEnabled="false">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/passwordEdit"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="55dp"
                             android:autofillHints="@string/hint_pls_write_password"
                             android:background="@drawable/shape_round_edit"
                             android:fontFamily="@font/noto_regular"
@@ -107,7 +111,7 @@
                             android:inputType="textPassword"
                             android:paddingStart="14dp"
                             android:paddingEnd="14dp"
-                            android:text="@={vm.userQuery.password}"
+                            android:text="@={vm.password}"
                             android:textSize="16sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -117,7 +121,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="4dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -130,15 +134,17 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="55dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:padding="0dp"
+                        app:errorEnabled="true"
                         app:hintEnabled="false">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/phoneNumberEdit"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="55dp"
+                            android:digits="1234567890"
                             android:autofillHints="@string/hint_pls_write_phone"
                             android:background="@drawable/shape_round_edit"
                             android:fontFamily="@font/noto_regular"
@@ -146,7 +152,7 @@
                             android:inputType="phone"
                             android:paddingStart="14dp"
                             android:paddingEnd="14dp"
-                            android:text="@={vm.userQuery.phone}"
+                            android:text="@={vm.phone}"
                             android:textSize="16sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -156,7 +162,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="4dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -169,7 +175,7 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="55dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:padding="0dp"
                         app:hintEnabled="false">
@@ -177,7 +183,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/nameEdit"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="55dp"
                             android:autofillHints="@string/hint_pls_write_name"
                             android:background="@drawable/shape_round_edit"
                             android:fontFamily="@font/noto_regular"
@@ -185,7 +191,7 @@
                             android:inputType="text"
                             android:paddingStart="14dp"
                             android:paddingEnd="14dp"
-                            android:text="@={vm.userQuery.name}"
+                            android:text="@={vm.name}"
                             android:textSize="16sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -273,8 +279,8 @@
             android:padding="18dp"
             android:text="@string/text_sign_up"
             android:theme="@style/BaseButton"
+            android:onClick="@{() -> vm.signUp()}"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:able="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 

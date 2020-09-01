@@ -8,6 +8,7 @@ import com.readlab.readlight.domain.usecase.UserUseCase
 import com.readlab.readlight.presentation.common.AsyncFlowableTransformer
 import com.readlab.readlight.presentation.network.httpClient
 import com.readlab.readlight.presentation.network.retrofitClient
+import com.readlab.readlight.presentation.ui.login.LogInViewModel
 import com.readlab.readlight.presentation.ui.signup.SignUpViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
@@ -21,8 +22,8 @@ val mRepository = module {
 val mUseCases = module {
     single {
         UserUseCase(
-            repository = get(named(USER_REPOSITORY)),
-            transformer = AsyncFlowableTransformer<Response>()
+            get(named(USER_REPOSITORY)),
+            AsyncFlowableTransformer<Response>()
         )
     }
 }
@@ -34,9 +35,8 @@ val mNetworkModules = module {
 }
 
 val mViewModels = module {
-    viewModel {
-        SignUpViewModel(get())
-    }
+    viewModel { SignUpViewModel(get()) }
+    viewModel { LogInViewModel(get()) }
 }
 
 const val BASE_URL = "https://api.readlight.me/"
