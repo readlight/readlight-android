@@ -17,16 +17,26 @@ data class SignUpQuery(
     var password: String = "",
     var phone: String = ""
 ) {
-    fun isValidate(): Boolean {
-        return !(
-                name.isEmpty()
-                        || email.isEmpty()
-                        || password.isEmpty()
-                        || phone.isEmpty()
-                        || !(email.matches(emailRegularExpression) && password.matches(
-                    passwordRegularExpression
-                ))
-                )
+    fun isValid() = Companion.isValid(name, email, password, phone)
+
+    companion object {
+        fun isNameValid(name: String?) = !name.isNullOrBlank()
+        fun isPhoneValid(phone: String?) = !phone.isNullOrBlank()
+        fun isEmailValid(email: String?) = email?.matches(emailRegularExpression) ?: false
+        fun isPasswordValid(password: String?) =
+            password?.matches(passwordRegularExpression) ?: false
+
+        @JvmStatic
+        fun isValid(
+            name: String?,
+            email: String?,
+            password: String?,
+            phone: String?
+        ) = isNameValid(name) &&
+                isPhoneValid(phone) &&
+                isEmailValid(email) &&
+                isPasswordValid(password)
+
     }
 }
 
