@@ -2,10 +2,9 @@ package com.clean.custom
 
 import android.content.Context
 import android.util.AttributeSet
-import androidx.appcompat.widget.AppCompatButton
+import br.com.simplepass.loadingbutton.customViews.CircularProgressButton
 
-
-class LitButton : AppCompatButton {
+class LitButton : CircularProgressButton {
     var able = true
         set(able) {
             field = able
@@ -24,11 +23,11 @@ class LitButton : AppCompatButton {
         init(context, null)
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         init(context, attrs)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
         context,
         attrs,
         defStyleAttr

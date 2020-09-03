@@ -26,7 +26,7 @@
     </style>
 
     <style name="TitleText" parent="TextTheme">
-        <item name="fontFamily">@font/noto_black</item>
+        <item name="fontFamily">@font/noto_bold</item>
         <item name="android:textSize">20sp</item>
     </style>
 
@@ -42,8 +42,13 @@
     </style>
 
     <style name="LitDialog" parent="@android:style/Theme.Translucent">
-        <item name="android:windowFullscreen">true</item>
-        <item name="windowNoTitle">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowAnimationStyle">@style/Animation.AppCompat.Dialog</item>
     </style>
 
