@@ -2,7 +2,7 @@ package com.readlab.readlight.presentation.di
 
 import com.readlab.readlight.data.api.UserApi
 import com.readlab.readlight.data.repositories.UserRepositoryImpl
-import com.readlab.readlight.domain.model.Response
+import com.readlab.readlight.domain.model.TokenResult
 import com.readlab.readlight.domain.repositories.UserRepository
 import com.readlab.readlight.domain.usecase.UserUseCase
 import com.readlab.readlight.presentation.common.AsyncFlowableTransformer
@@ -13,6 +13,7 @@ import com.readlab.readlight.presentation.ui.signup.SignUpViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
+import retrofit2.Response
 import retrofit2.Retrofit
 
 val mRepository = module {
@@ -23,7 +24,7 @@ val mUseCases = module {
     single {
         UserUseCase(
             get(named(USER_REPOSITORY)),
-            AsyncFlowableTransformer<Response>()
+            AsyncFlowableTransformer<Response<TokenResult>>()
         )
     }
 }

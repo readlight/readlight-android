@@ -1,6 +1,6 @@
 package com.readlab.readlight.domain.model
 
-class TokenResponse(
+class TokenResult(
     result: String,
     val token: String
-) : Response(result)
+) : Result(result)

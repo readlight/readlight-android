@@ -11,11 +11,11 @@
     <string name="text_kakao_logo">kakao_logo</string>
     <string name="hint_pls_write_email" tools:ignore="TypographyEllipsis">이메일을 입력해 주세요...</string>
     <string name="text_sign_up">가입하기</string>
-    <string name="hint_pls_write_password">비밀번호를 입력해주세요...</string>
+    <string name="hint_pls_write_password" tools:ignore="TypographyEllipsis">비밀번호를 입력해주세요...</string>
     <string name="text_name">이름</string>
-    <string name="hint_pls_write_name">이름을 입력해주세요...</string>
+    <string name="hint_pls_write_name" tools:ignore="TypographyEllipsis">이름을 입력해주세요...</string>
     <string name="text_phone">전화번호</string>
-    <string name="hint_pls_write_phone">전화번호를 입력해주세요...</string>
+    <string name="hint_pls_write_phone" tools:ignore="TypographyEllipsis">전화번호를 입력해주세요...</string>
     <string name="text_agree_term"><u>이용약관 및 개인정보 이용 동의</u></string>
     <string name="text_agree_alarm_term"><u>(선택) 이벤트 및 야간 알림동의</u></string>
     <string name="text_login">로그인</string>
@@ -23,4 +23,9 @@
     <string name="text_do_not_have_account">계정이 없으신가요?</string>
     <string name="invalid_email">이메일 형식이 올바르지 않습니다</string>
     <string name="invalid_password">8~15자 사이로 영문, 숫자, 특수문자를 1개 이상 포함해야합니다</string>
+    <string name="text_invalid_data">값이 유효하지 않습니다</string>
+    <string name="text_invalid_data_notice">입력하신 값을 다시 확인해주세요. 만약 문제가 반복된다면 고객센터에 문의 해주세요</string>
+    <string name="text_duplicated_email">이미 가입된 이메일입니다</string>
+    <string name="text_server_error">서버 오류</string>
+    <string name="text_server_error_notice">서버와의 연결이 불안정합니다 네트워크 상태를 확인해 주세요. 만약 문제가 반복된다면 고객센터에 문의 해주세요</string>
 </resources>

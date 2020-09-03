@@ -1,4 +1,4 @@
-package com.readlab.readlight.presentation.common
+package com.readlab.readlight.presentation.ui.util
 
 import android.util.Base64
 import java.math.BigDecimal

@@ -1,4 +1,4 @@
-package com.readlab.readlight.presentation.common
+package com.readlab.readlight.presentation.ui.util
 
 fun String.validate(regex: Regex, message: String) = if (this.matches(regex)) {
     null

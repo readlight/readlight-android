@@ -38,229 +38,196 @@
                     android:textColor="#000000"
                     android:textSize="24sp" />
 
-                <LinearLayout
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/noto_medium"
+                    android:includeFontPadding="false"
+                    android:text="@string/text_email"
+                    android:textSize="16sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/emailInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:orientation="vertical">
+                    android:layout_marginTop="8dp"
+                    android:padding="0dp"
+                    app:errorEnabled="true"
+                    app:errorText="@{(vm.email == null || vm.isEmailValid) ? null : @string/invalid_email}"
+                    app:hintEnabled="false">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/noto_medium"
-                        android:includeFontPadding="false"
-                        android:text="@string/text_email"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emailEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:autofillHints="@string/hint_pls_write_email"
+                        android:background="@drawable/shape_round_edit"
+                        android:fontFamily="@font/noto_regular"
+                        android:hint="@string/hint_pls_write_email"
+                        android:inputType="textEmailAddress"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:text="@={vm.email}"
                         android:textSize="16sp" />
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/emailInputLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:padding="0dp"
-                        app:errorEnabled="true"
-                        app:errorText="@{vm.isEmailValid ? null : @string/invalid_email}"
-                        app:hintEnabled="false">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/emailEdit"
-                            android:layout_width="match_parent"
-                            android:layout_height="55dp"
-                            android:autofillHints="@string/hint_pls_write_email"
-                            android:background="@drawable/shape_round_edit"
-                            android:fontFamily="@font/noto_regular"
-                            android:hint="@string/hint_pls_write_email"
-                            android:inputType="textEmailAddress"
-                            android:paddingStart="14dp"
-                            android:paddingEnd="14dp"
-                            android:text="@={vm.email}"
-                            android:textSize="16sp" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:orientation="vertical">
+                    android:fontFamily="@font/noto_medium"
+                    android:includeFontPadding="false"
+                    android:text="@string/text_password"
+                    android:textSize="16sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/noto_medium"
-                        android:includeFontPadding="false"
-                        android:text="@string/text_password"
-                        android:textSize="16sp" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/passwordInputLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:padding="0dp"
-                        app:endIconMode="password_toggle"
-                        app:errorEnabled="true"
-                        app:errorText="@{vm.isPasswordValid ? null : @string/invalid_password}"
-                        app:hintEnabled="false">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/passwordEdit"
-                            android:layout_width="match_parent"
-                            android:layout_height="55dp"
-                            android:autofillHints="@string/hint_pls_write_password"
-                            android:background="@drawable/shape_round_edit"
-                            android:fontFamily="@font/noto_regular"
-                            android:hint="@string/hint_pls_write_password"
-                            android:inputType="textPassword"
-                            android:paddingStart="14dp"
-                            android:paddingEnd="14dp"
-                            android:text="@={vm.password}"
-                            android:textSize="16sp" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/passwordInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:orientation="vertical">
+                    android:layout_marginTop="8dp"
+                    android:padding="0dp"
+                    app:endIconMode="password_toggle"
+                    app:errorEnabled="true"
+                    app:errorText="@{(vm.password == null || vm.isPasswordValid) ? null : @string/invalid_password}"
+                    app:hintEnabled="false">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/noto_medium"
-                        android:includeFontPadding="false"
-                        android:text="@string/text_phone"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/passwordEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:autofillHints="@string/hint_pls_write_password"
+                        android:background="@drawable/shape_round_edit"
+                        android:fontFamily="@font/noto_regular"
+                        android:hint="@string/hint_pls_write_password"
+                        android:inputType="textPassword"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:text="@={vm.password}"
                         android:textSize="16sp" />
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:padding="0dp"
-                        app:errorEnabled="true"
-                        app:hintEnabled="false">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/phoneNumberEdit"
-                            android:layout_width="match_parent"
-                            android:layout_height="55dp"
-                            android:autofillHints="@string/hint_pls_write_phone"
-                            android:background="@drawable/shape_round_edit"
-                            android:digits="1234567890"
-                            android:fontFamily="@font/noto_regular"
-                            android:hint="@string/hint_pls_write_phone"
-                            android:inputType="phone"
-                            android:paddingStart="14dp"
-                            android:paddingEnd="14dp"
-                            android:text="@={vm.phone}"
-                            android:textSize="16sp" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:orientation="vertical">
+                    android:fontFamily="@font/noto_medium"
+                    android:includeFontPadding="false"
+                    android:text="@string/text_phone"
+                    android:textSize="16sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/noto_medium"
-                        android:includeFontPadding="false"
-                        android:text="@string/text_name"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:padding="0dp"
+                    app:errorEnabled="true"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/phoneNumberEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:autofillHints="@string/hint_pls_write_phone"
+                        android:background="@drawable/shape_round_edit"
+                        android:digits="1234567890"
+                        android:fontFamily="@font/noto_regular"
+                        android:hint="@string/hint_pls_write_phone"
+                        android:inputType="phone"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:text="@={vm.phone}"
                         android:textSize="16sp" />
 
-                    <com.google.android.material.textfield.TextInputLayout
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/noto_medium"
+                    android:includeFontPadding="false"
+                    android:text="@string/text_name"
+                    android:textSize="16sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:padding="0dp"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/nameEdit"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:padding="0dp"
-                        app:hintEnabled="false">
+                        android:layout_height="55dp"
+                        android:autofillHints="@string/hint_pls_write_name"
+                        android:background="@drawable/shape_round_edit"
+                        android:fontFamily="@font/noto_regular"
+                        android:hint="@string/hint_pls_write_name"
+                        android:inputType="text"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:text="@={vm.name}"
+                        android:textSize="16sp" />
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/nameEdit"
-                            android:layout_width="match_parent"
-                            android:layout_height="55dp"
-                            android:autofillHints="@string/hint_pls_write_name"
-                            android:background="@drawable/shape_round_edit"
-                            android:fontFamily="@font/noto_regular"
-                            android:hint="@string/hint_pls_write_name"
-                            android:inputType="text"
-                            android:paddingStart="14dp"
-                            android:paddingEnd="14dp"
-                            android:text="@={vm.name}"
-                            android:textSize="16sp" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                </LinearLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
-                    android:orientation="vertical">
+                    android:gravity="center_vertical">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical">
+                        android:layout_weight="1"
+                        android:fontFamily="@font/noto_regular"
+                        android:includeFontPadding="false"
+                        android:text="@string/text_agree_term"
+                        android:textColor="@color/blueGray"
+                        android:textSize="18sp" />
 
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/noto_regular"
-                            android:includeFontPadding="false"
-                            android:text="@string/text_agree_term"
-                            android:textColor="@color/blueGray"
-                            android:textSize="18sp" />
-
-                        <CheckBox
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
-                            android:background="?android:attr/listChoiceIndicatorMultiple"
-                            android:button="@null" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/noto_regular"
-                            android:includeFontPadding="false"
-                            android:text="@string/text_agree_alarm_term"
-                            android:textColor="@color/blueGray"
-                            android:textSize="18sp" />
-
-                        <CheckBox
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
-                            android:background="?android:attr/listChoiceIndicatorMultiple"
-                            android:button="@null" />
-
-                    </LinearLayout>
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="160dp" />
+                    <CheckBox
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="?android:attr/listChoiceIndicatorMultiple"
+                        android:button="@null"
+                        android:checked="@={vm.isTermAgreed}" />
 
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/noto_regular"
+                        android:includeFontPadding="false"
+                        android:text="@string/text_agree_alarm_term"
+                        android:textColor="@color/blueGray"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="?android:attr/listChoiceIndicatorMultiple"
+                        android:button="@null"
+                        android:checked="@={vm.isAlarmReceptionAgreed}" />
+
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp" />
 
             </LinearLayout>
 
@@ -278,17 +245,19 @@
         <com.clean.custom.LitButton
             android:id="@+id/signUpButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:layout_marginHorizontal="24dp"
             android:layout_marginBottom="32dp"
-            android:onClick="@{() -> vm.signUp()}"
-            android:padding="18dp"
+            android:windowSoftInputMode="adjustPan"
             android:text="@string/text_sign_up"
             android:theme="@style/BaseButton"
-            app:able="@{SignUpQuery.isValid(vm.name, vm.email, vm.password, vm.phone)}"
+            app:able="@{SignUpQuery.isValid(vm.email, vm.password, vm.name, vm.phone, vm.isTermAgreed)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:spinning_bar_color="#FFFFFFFF"
+            app:spinning_bar_padding="5dp"
+            app:spinning_bar_width="5dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

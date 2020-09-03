@@ -1,7 +1,7 @@
 package com.readlab.readlight.presentation.network
 
 import com.readlab.readlight.BuildConfig
-import com.readlab.readlight.presentation.common.toBase64
+import com.readlab.readlight.presentation.ui.util.toBase64
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException

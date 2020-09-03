@@ -2,22 +2,24 @@ package com.readlab.readlight.domain.repositories
 
 import com.clean.util.emailRegularExpression
 import com.clean.util.passwordRegularExpression
-import com.readlab.readlight.domain.model.Response
-import com.readlab.readlight.domain.model.TokenResponse
+import com.readlab.readlight.domain.model.TokenResult
 import io.reactivex.rxjava3.core.Single
+import retrofit2.Response
 
 interface UserRepository {
-    fun postSignUp(query: SignUpQuery): Single<Response>
-    fun postLogIn(query: LogInQuery): Single<TokenResponse>
+    fun postSignUp(query: SignUpQuery): Single<Response<TokenResult>>
+    fun postLogIn(query: LogInQuery): Single<Response<TokenResult>>
 }
 
 data class SignUpQuery(
-    var name: String = "",
     var email: String = "",
     var password: String = "",
-    var phone: String = ""
+    var name: String = "",
+    var phone: String = "",
+    var isTermAgreed: Boolean = false,
+    var isAlarmReceptionAgreed: Boolean = false
 ) {
-    fun isValid() = Companion.isValid(name, email, password, phone)
+    fun isValid() = Companion.isValid(email, password, name, phone, isTermAgreed)
 
     companion object {
         fun isNameValid(name: String?) = !name.isNullOrBlank()
@@ -28,15 +30,16 @@ data class SignUpQuery(
 
         @JvmStatic
         fun isValid(
-            name: String?,
             email: String?,
             password: String?,
-            phone: String?
+            name: String?,
+            phone: String?,
+            isTermAgreed: Boolean
         ) = isNameValid(name) &&
                 isPhoneValid(phone) &&
                 isEmailValid(email) &&
-                isPasswordValid(password)
-
+                isPasswordValid(password) &&
+                isTermAgreed
     }
 }
 

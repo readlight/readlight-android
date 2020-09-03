@@ -1,5 +1,5 @@
 package com.readlab.readlight.domain.model
 
-open class Response(
+open class Result(
     val result: String,
 )

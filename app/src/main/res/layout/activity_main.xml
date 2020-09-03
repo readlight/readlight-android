@@ -1,34 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <Button
-            android:id="@+id/LogInButton"
-            android:layout_width="160dp"
-            android:layout_height="60dp"
-            android:layout_margin="18dp"
-            android:background="#000000"
-            android:text="LogIn"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/signUpButton"
-            android:layout_width="160dp"
-            android:layout_height="60dp"
-            android:layout_margin="18dp"
-            android:background="#000000"
-            android:text="SignUp"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toTopOf="@+id/LogInButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
