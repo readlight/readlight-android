@@ -33,11 +33,11 @@ class OnBoardActivity : AppCompatActivity() {
 
     fun startWithEmail() {
         startActivity(Intent(this, SignUpActivity::class.java))
-        finishAffinity()
+        //finishAffinity()
     }
 
     fun loginWithEmail() {
         startActivity(Intent(this, LogInActivity::class.java))
-        finishAffinity()
+        //finishAffinity()
     }
 }
