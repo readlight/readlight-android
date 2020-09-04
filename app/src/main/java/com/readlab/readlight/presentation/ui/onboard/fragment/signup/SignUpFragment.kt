@@ -1,7 +1,9 @@
 package com.readlab.readlight.presentation.ui.onboard.fragment.signup
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +15,7 @@ import com.readlab.readlight.presentation.security.Token
 import com.readlab.readlight.presentation.ui.main.MainActivity
 import org.koin.android.ext.android.inject
 
+
 class SignUpFragment : BaseFragment() {
     private val signViewModel: SignUpViewModel by inject()
 
@@ -21,7 +24,9 @@ class SignUpFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentSignupBinding.inflate(inflater, container, false)
+        val contextThemeWrapper: Context = ContextThemeWrapper(activity, R.style.AppTheme)
+        val localInflater = inflater.cloneInContext(contextThemeWrapper)
+        val binding = FragmentSignupBinding.inflate(localInflater, container, false)
         binding.vm = signViewModel
         binding.lifecycleOwner = viewLifecycleOwner
 

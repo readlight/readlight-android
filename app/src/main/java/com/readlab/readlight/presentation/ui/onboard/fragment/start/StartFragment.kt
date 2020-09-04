@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.kakao.sdk.auth.LoginClient
 import com.kakao.sdk.auth.rx
+import com.readlab.readlight.R
 import com.readlab.readlight.databinding.FragmentStartBinding
 import com.readlab.readlight.presentation.common.BaseFragment
 import com.readlab.readlight.presentation.ui.main.MainActivity
@@ -22,6 +23,10 @@ class StartFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        activity?.window?.apply {
+            statusBarColor = context?.getColor(R.color.colorPrimary) ?: 0
+        }
+
         binding = FragmentStartBinding.inflate(inflater, container, false)
         binding.fragment = this
         return binding.root
