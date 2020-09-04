@@ -12,7 +12,15 @@
 
         <action
             android:id="@+id/action_start_fragment_to_login_fragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
             app:destination="@id/login_fragment" />
+
+        <action
+            android:id="@+id/action_start_fragment_to_signup_fragment"
+            app:destination="@id/signup_fragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
 
     </fragment>
 
@@ -20,6 +28,19 @@
         android:id="@+id/login_fragment"
         android:name="com.readlab.readlight.presentation.ui.onboard.fragment.login.LogInFragment"
         tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_login_fragment_to_signup_fragment"
+            app:destination="@id/signup_fragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/signup_fragment"
+        android:name="com.readlab.readlight.presentation.ui.onboard.fragment.signup.SignUpFragment"
+        tools:layout="@layout/fragment_signup">
 
     </fragment>
 

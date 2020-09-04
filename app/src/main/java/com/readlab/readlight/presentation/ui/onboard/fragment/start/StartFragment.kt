@@ -37,7 +37,8 @@ class StartFragment : BaseFragment() {
         })
 
     fun startWithEmail() {
-        //startActivity(Intent(this, SignUpActivity::class.java))
+        val direction = StartFragmentDirections.actionStartFragmentToSignupFragment()
+        findNavController().navigate(direction)
     }
 
     fun loginWithEmail() {

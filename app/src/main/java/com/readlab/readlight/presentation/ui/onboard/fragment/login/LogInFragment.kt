@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.readlab.readlight.databinding.FragmentLoginBinding
 import com.readlab.readlight.presentation.common.BaseFragment
 import com.readlab.readlight.presentation.ui.main.MainActivity
@@ -20,6 +21,11 @@ class LogInFragment : BaseFragment() {
     ): View? {
         val binding = FragmentLoginBinding.inflate(inflater, container, false)
         binding.vm = logInViewModel
+
+        binding.signUpButton.setOnClickListener {
+            val direction = LogInFragmentDirections.actionLoginFragmentToSignupFragment()
+            findNavController().navigate(direction)
+        }
 
         binding.logInButton.setOnClickListener {
             startActivity(Intent(activity, MainActivity::class.java))
