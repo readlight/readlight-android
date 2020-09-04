@@ -8,7 +8,7 @@
 
         <variable
             name="vm"
-            type="com.readlab.readlight.presentation.ui.signup.SignUpViewModel" />
+            type="com.readlab.readlight.presentation.ui.onboard.fragment.signup.SignUpViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

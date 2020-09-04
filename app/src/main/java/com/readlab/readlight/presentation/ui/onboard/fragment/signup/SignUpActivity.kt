@@ -1,4 +1,4 @@
-package com.readlab.readlight.presentation.ui.signup
+package com.readlab.readlight.presentation.ui.onboard.fragment.signup
 
 import android.content.Intent
 import android.os.Bundle

@@ -6,7 +6,7 @@
 
         <variable
             name="vm"
-            type="com.readlab.readlight.presentation.ui.login.LogInViewModel" />
+            type="com.readlab.readlight.presentation.ui.onboard.fragment.login.LogInViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,4 +1,4 @@
-package com.readlab.readlight.presentation.ui.login
+package com.readlab.readlight.presentation.ui.onboard.fragment.login
 
 import androidx.lifecycle.MutableLiveData
 import com.orhanobut.logger.Logger

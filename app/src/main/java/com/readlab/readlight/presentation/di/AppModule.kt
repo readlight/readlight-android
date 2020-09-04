@@ -8,8 +8,8 @@ import com.readlab.readlight.domain.usecase.UserUseCase
 import com.readlab.readlight.presentation.common.AsyncFlowableTransformer
 import com.readlab.readlight.presentation.network.httpClient
 import com.readlab.readlight.presentation.network.retrofitClient
-import com.readlab.readlight.presentation.ui.login.LogInViewModel
-import com.readlab.readlight.presentation.ui.signup.SignUpViewModel
+import com.readlab.readlight.presentation.ui.onboard.fragment.login.LogInViewModel
+import com.readlab.readlight.presentation.ui.onboard.fragment.signup.SignUpViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module

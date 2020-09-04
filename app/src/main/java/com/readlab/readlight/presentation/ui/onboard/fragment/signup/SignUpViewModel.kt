@@ -1,4 +1,4 @@
-package com.readlab.readlight.presentation.ui.signup
+package com.readlab.readlight.presentation.ui.onboard.fragment.signup
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
