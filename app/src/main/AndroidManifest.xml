@@ -28,7 +28,7 @@
             android:name=".presentation.ui.onboard.OnBoardActivity"
             android:theme="@style/AccentStatusBarTheme" />
         <activity android:name="com.readlab.readlight.presentation.ui.onboard.fragment.signup.SignUpActivity" />
-        <activity android:name="com.readlab.readlight.presentation.ui.onboard.fragment.login.LogInActivity" />
+        <activity android:name="com.readlab.readlight.presentation.ui.onboard.fragment.login.LogInFragment" />
         <activity android:name=".presentation.ui.main.MainActivity" />
 
     </application>

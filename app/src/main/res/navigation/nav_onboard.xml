@@ -11,11 +11,15 @@
         tools:layout="@layout/fragment_start">
 
         <action
-            android:id="@+id/action_view_pager_fragment_to_plant_detail_fragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
+            android:id="@+id/action_start_fragment_to_login_fragment"
+            app:destination="@id/login_fragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="com.readlab.readlight.presentation.ui.onboard.fragment.login.LogInFragment"
+        tools:layout="@layout/fragment_login">
 
     </fragment>
 
