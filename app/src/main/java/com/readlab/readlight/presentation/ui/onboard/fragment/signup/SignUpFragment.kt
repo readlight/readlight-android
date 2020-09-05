@@ -24,6 +24,10 @@ class SignUpFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        activity?.window?.apply {
+            statusBarColor = context?.getColor(R.color.colorPrimary) ?: 0
+        }
+
         val contextThemeWrapper: Context = ContextThemeWrapper(activity, R.style.AppTheme)
         val localInflater = inflater.cloneInContext(contextThemeWrapper)
         val binding = FragmentSignupBinding.inflate(localInflater, container, false)

@@ -37,8 +37,6 @@ class SignUpViewModel(private val userUseCase: UserUseCase) : BaseViewModel() {
             isAlarmReceptionAgreed.value ?: false
         )
         if (!userQuery.isValid()) return
-        Logger.d(userQuery)
-
         val disposable = userUseCase
             .postSignUp(userQuery)
             .subscribe({ response ->

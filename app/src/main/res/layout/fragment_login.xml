@@ -51,10 +51,12 @@
                         android:textSize="16sp" />
 
                     <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/emailInputLayout"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:layout_marginTop="8dp"
                         android:padding="0dp"
+                        app:errorEnabled="true"
                         app:hintEnabled="false">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -68,7 +70,7 @@
                             android:inputType="textEmailAddress"
                             android:paddingStart="14dp"
                             android:paddingEnd="14dp"
-                            android:text="@={vm.loginQuery.email}"
+                            android:text="@={vm.email}"
                             android:textSize="16sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -90,10 +92,13 @@
                         android:textSize="16sp" />
 
                     <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/passwordInputLayout"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:layout_marginTop="8dp"
                         android:padding="0dp"
+                        app:endIconMode="password_toggle"
+                        app:errorEnabled="true"
                         app:hintEnabled="false">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -107,7 +112,7 @@
                             android:inputType="textPassword"
                             android:paddingStart="14dp"
                             android:paddingEnd="14dp"
-                            android:text="@={vm.loginQuery.password}"
+                            android:text="@={vm.password}"
                             android:textSize="16sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -127,13 +132,17 @@
                     <com.clean.custom.LitButton
                         android:id="@+id/logInButton"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="60dp"
                         android:layout_marginTop="36dp"
                         android:padding="18dp"
                         android:text="@string/text_login"
                         android:theme="@style/BaseButton"
-                        android:onClick="@{() -> vm.logIn()}"
-                        app:able="true" />
+                        android:layout_gravity="center_horizontal"
+                        app:able="true"
+                        app:initialCornerAngle="60dp"
+                        app:spinning_bar_color="#FFFFFFFF"
+                        app:spinning_bar_padding="5dp"
+                        app:spinning_bar_width="5dp" />
 
                 </LinearLayout>
 

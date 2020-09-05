@@ -24,7 +24,7 @@ class StartFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         activity?.window?.apply {
-            statusBarColor = context?.getColor(R.color.colorPrimary) ?: 0
+            statusBarColor = context?.getColor(R.color.colorAccent) ?: 0
         }
 
         binding = FragmentStartBinding.inflate(inflater, container, false)
