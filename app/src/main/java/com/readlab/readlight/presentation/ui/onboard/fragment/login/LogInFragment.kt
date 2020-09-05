@@ -28,6 +28,7 @@ class LogInFragment : BaseFragment() {
 
         val binding = FragmentLoginBinding.inflate(inflater, container, false)
         binding.vm = logInViewModel
+        binding.lifecycleOwner = viewLifecycleOwner
 
         binding.signUpButton.setOnClickListener {
             val direction = LogInFragmentDirections.actionLoginFragmentToSignupFragment()

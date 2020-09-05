@@ -46,4 +46,14 @@ data class SignUpQuery(
 data class LogInQuery(
     var email: String = "",
     var password: String = ""
-)
+) {
+    fun isValid() = Companion.isValid(email, password)
+
+    companion object {
+        @JvmStatic
+        fun isValid(
+            email: String?,
+            password: String?
+        ) = !(email.isNullOrBlank() || password.isNullOrBlank())
+    }
+}

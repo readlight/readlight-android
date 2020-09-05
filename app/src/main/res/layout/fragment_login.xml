@@ -4,6 +4,8 @@
 
     <data>
 
+        <import type="com.readlab.readlight.domain.repositories.LogInQuery" />
+
         <variable
             name="vm"
             type="com.readlab.readlight.presentation.ui.onboard.fragment.login.LogInViewModel" />
@@ -138,7 +140,7 @@
                         android:text="@string/text_login"
                         android:theme="@style/BaseButton"
                         android:layout_gravity="center_horizontal"
-                        app:able="true"
+                        app:able="@{LogInQuery.isValid(vm.email, vm.password)}"
                         app:initialCornerAngle="60dp"
                         app:spinning_bar_color="#FFFFFFFF"
                         app:spinning_bar_padding="5dp"
