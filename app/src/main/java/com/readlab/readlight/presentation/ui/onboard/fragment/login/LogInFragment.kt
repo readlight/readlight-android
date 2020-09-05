@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.clean.custom.LitDialog
+import com.clean.custom.LitProgressDialog
 import com.readlab.readlight.R
 import com.readlab.readlight.databinding.FragmentLoginBinding
 import com.readlab.readlight.presentation.common.BaseFragment
@@ -15,6 +16,8 @@ import com.readlab.readlight.presentation.ui.main.MainActivity
 import org.koin.android.ext.android.inject
 
 class LogInFragment : BaseFragment() {
+    private val progressDialog by lazy { LitProgressDialog(parent) }
+    private val dialog by lazy { LitDialog(parent) }
     private val logInViewModel: LogInViewModel by inject()
 
     override fun onCreateView(
@@ -22,9 +25,7 @@ class LogInFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        activity?.window?.apply {
-            statusBarColor = context?.getColor(R.color.colorPrimary) ?: 0
-        }
+        activity?.window?.statusBarColor = parent.getColor(R.color.colorPrimary)
 
         val binding = FragmentLoginBinding.inflate(inflater, container, false)
         binding.vm = logInViewModel
@@ -35,15 +36,13 @@ class LogInFragment : BaseFragment() {
             findNavController().navigate(direction)
         }
 
-        binding.logInButton.run {
-            setOnClickListener {
-                startAnimation()
-                logInViewModel.logIn()
-            }
+        binding.logInButton.setOnClickListener {
+            progressDialog.show()
+            logInViewModel.logIn()
         }
 
         logInViewModel.logInResult.observe(viewLifecycleOwner, {
-            binding.logInButton.revertAnimation()
+            progressDialog.stop()
             when (it.code()) {
                 SUCCESS -> {
                     val token: String = it.body()?.token ?: ""
@@ -57,15 +56,15 @@ class LogInFragment : BaseFragment() {
                     binding.passwordInputLayout.error =
                         getString(R.string.text_wrong_email_or_password)
                 }
-                INVALID_DATA -> LitDialog(parent).show(
+                INVALID_DATA -> dialog.show(
                     title = getString(R.string.text_invalid_data),
                     content = getString(R.string.text_invalid_data_notice)
                 )
-                ACCOUNT_CLOSED -> LitDialog(parent).show(
+                ACCOUNT_CLOSED -> dialog.show(
                     title = getString(R.string.text_account_closed),
                     content = getString(R.string.text_account_closed_notice)
                 )
-                UNKNOWN_API_ERROR -> LitDialog(parent).show(
+                UNKNOWN_API_ERROR -> dialog.show(
                     title = getString(R.string.text_server_error),
                     content = getString(R.string.text_server_error_notice)
                 )

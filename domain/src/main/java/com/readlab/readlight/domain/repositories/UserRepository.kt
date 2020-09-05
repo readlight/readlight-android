@@ -61,5 +61,5 @@ data class LogInQuery(
 }
 
 data class KakaoSocialLogInQuery(
-    @SerializedName("kakaologin") val kakaoToken: String = ""
+    @SerializedName("kakaotoken") val kakaoToken: String = ""
 )

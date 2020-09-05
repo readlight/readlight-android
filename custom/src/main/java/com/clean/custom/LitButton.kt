@@ -2,9 +2,9 @@ package com.clean.custom
 
 import android.content.Context
 import android.util.AttributeSet
-import br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+import androidx.appcompat.widget.AppCompatButton
 
-class LitButton : CircularProgressButton {
+class LitButton : AppCompatButton {
     var able = true
         set(able) {
             field = able

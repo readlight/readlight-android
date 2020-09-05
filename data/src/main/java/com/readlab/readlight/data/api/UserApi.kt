@@ -21,7 +21,7 @@ interface UserApi {
         @Body query: LogInQuery
     ): Single<Response<TokenResult>>
 
-    @PUT("auth/login")
+    @PUT("auth/social-kakao")
     fun putKakaoSocialLogIn(
         @Body query: KakaoSocialLogInQuery
     ): Single<Response<TokenResult>>

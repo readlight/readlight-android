@@ -13,5 +13,6 @@ class LitDialog(private val context: Context) {
         text_content.text = content
         button_confirm.setOnClickListener { dismiss() }
         layout_root.setOnClickListener { dismiss() }
+        setCanceledOnTouchOutside(false)
     }.show()
 }

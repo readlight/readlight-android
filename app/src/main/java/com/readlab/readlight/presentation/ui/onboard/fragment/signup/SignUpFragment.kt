@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.clean.custom.LitDialog
+import com.clean.custom.LitProgressDialog
 import com.readlab.readlight.R
 import com.readlab.readlight.databinding.FragmentSignupBinding
 import com.readlab.readlight.presentation.common.BaseFragment
@@ -14,6 +15,8 @@ import com.readlab.readlight.presentation.ui.main.MainActivity
 import org.koin.android.ext.android.inject
 
 class SignUpFragment : BaseFragment() {
+    private val progressDialog by lazy { LitProgressDialog(parent) }
+    private val dialog by lazy { LitDialog(parent) }
     private val signViewModel: SignUpViewModel by inject()
 
     override fun onCreateView(
@@ -21,30 +24,29 @@ class SignUpFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        activity?.window?.statusBarColor = context?.getColor(R.color.colorPrimary) ?: 0
+        activity?.window?.statusBarColor = parent.getColor(R.color.colorPrimary)
+
         val binding = FragmentSignupBinding.inflate(inflater, container, false)
         binding.vm = signViewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-        binding.signUpButton.run {
-            setOnClickListener {
-                signViewModel.signUp()
-                startAnimation()
-            }
+        binding.signUpButton.setOnClickListener {
+            progressDialog.show()
+            signViewModel.signUp()
         }
 
         signViewModel.signUpResult.observe(viewLifecycleOwner, {
-            binding.signUpButton.revertAnimation()
+            progressDialog.stop()
             when (it.code()) {
                 SUCCESS -> {
                     val token: String = it.body()?.token ?: ""
                     signUpSuccess(token)
                 }
-                INVALID_DATA -> LitDialog(parent).show(
+                INVALID_DATA -> dialog.show(
                     title = getString(R.string.text_invalid_data),
                     content = getString(R.string.text_invalid_data_notice)
                 )
-                UNKNOWN_API_ERROR -> LitDialog(parent).show(
+                UNKNOWN_API_ERROR -> dialog.show(
                     title = getString(R.string.text_server_error),
                     content = getString(R.string.text_server_error_notice)
                 )
