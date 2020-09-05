@@ -10,6 +10,7 @@ import com.readlab.readlight.presentation.network.httpClient
 import com.readlab.readlight.presentation.network.retrofitClient
 import com.readlab.readlight.presentation.ui.onboard.fragment.login.LogInViewModel
 import com.readlab.readlight.presentation.ui.onboard.fragment.signup.SignUpViewModel
+import com.readlab.readlight.presentation.ui.onboard.fragment.start.StartViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
@@ -38,6 +39,7 @@ val mNetworkModules = module {
 val mViewModels = module {
     viewModel { SignUpViewModel(get()) }
     viewModel { LogInViewModel(get()) }
+    viewModel { StartViewModel(get()) }
 }
 
 const val BASE_URL = "https://api.readlight.me/"

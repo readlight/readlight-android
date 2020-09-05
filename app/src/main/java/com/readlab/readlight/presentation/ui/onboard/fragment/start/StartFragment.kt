@@ -14,8 +14,10 @@ import com.readlab.readlight.databinding.FragmentStartBinding
 import com.readlab.readlight.presentation.common.BaseFragment
 import com.readlab.readlight.presentation.ui.main.MainActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class StartFragment : BaseFragment() {
+    private val startViewModel: StartViewModel by viewModel()
     private lateinit var binding: FragmentStartBinding
 
     override fun onCreateView(
@@ -29,14 +31,19 @@ class StartFragment : BaseFragment() {
 
         binding = FragmentStartBinding.inflate(inflater, container, false)
         binding.fragment = this
+
+        startViewModel.startWithKakaoResult.observe(viewLifecycleOwner, {
+            startActivity(Intent(activity, MainActivity::class.java))
+            activity?.finish()
+        })
+
         return binding.root
     }
 
-    fun kakaoLogin() = LoginClient.rx.loginWithKakaoTalk(parent)
+    fun startWithKakao() = LoginClient.rx.loginWithKakaoTalk(parent)
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe({
-            startActivity(Intent(activity, MainActivity::class.java))
-            activity?.finish()
+
         }, { error ->
             Log.e("StartFragment", "로그인 실패", error)
         })

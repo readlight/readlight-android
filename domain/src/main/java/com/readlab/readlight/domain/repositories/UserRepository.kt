@@ -2,6 +2,7 @@ package com.readlab.readlight.domain.repositories
 
 import com.clean.util.emailRegularExpression
 import com.clean.util.passwordRegularExpression
+import com.google.gson.annotations.SerializedName
 import com.readlab.readlight.domain.model.TokenResult
 import io.reactivex.rxjava3.core.Single
 import retrofit2.Response
@@ -9,6 +10,7 @@ import retrofit2.Response
 interface UserRepository {
     fun postSignUp(query: SignUpQuery): Single<Response<TokenResult>>
     fun postLogIn(query: LogInQuery): Single<Response<TokenResult>>
+    fun putKakaoSocialLogIn(query: KakaoSocialLogInQuery): Single<Response<TokenResult>>
 }
 
 data class SignUpQuery(
@@ -57,3 +59,7 @@ data class LogInQuery(
         ) = !(email.isNullOrBlank() || password.isNullOrBlank())
     }
 }
+
+data class KakaoSocialLogInQuery(
+    @SerializedName("kakaologin") val kakaoToken: String = ""
+)
