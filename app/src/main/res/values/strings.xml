@@ -37,4 +37,8 @@
     <string name="text_kakao_login_failed_notice">카카오 소셜 로그인을 실패하였습니다</string>
     <string name="text_invaild_kakao_account">카카오 계정이 유효하지 않습니다</string>
     <string name="text_invaild_kakao_account_notice">문제가 반복된다면 고객센터에 문의해주세요</string>
+    <string name="text_feed">피드</string>
+    <string name="text_search">검색</string>
+    <string name="text_library">서재</string>
+    <string name="text_ensemble">전체</string>
 </resources>

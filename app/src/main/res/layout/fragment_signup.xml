@@ -251,6 +251,7 @@
             android:windowSoftInputMode="adjustPan"
             android:text="@string/text_sign_up"
             android:theme="@style/BaseButton"
+            android:elevation="0dp"
             app:able="@{SignUpQuery.isValid(vm.email, vm.password, vm.name, vm.phone, vm.isTermAgreed)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

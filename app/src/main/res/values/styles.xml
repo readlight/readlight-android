@@ -39,4 +39,13 @@
         <item name="fontFamily">@font/noto_bold</item>
     </style>
 
+    <style name="BottomNav" parent="Theme.MaterialComponents">
+        <item name="bottomNavigationStyle">
+            @style/Widget.MaterialComponents.BottomNavigationView.Colored
+        </item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/colorAccent</item>
+        <item name="itemIconTint">@color/colorGray</item>
+    </style>
+
 </resources>
