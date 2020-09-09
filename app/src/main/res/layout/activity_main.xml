@@ -21,6 +21,8 @@
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:theme="@style/BottomNav"
+            app:itemIconTint="@color/bottom_nav_selector"
+            app:itemTextColor="@color/bottom_nav_selector"
             app:menu="@menu/bottom_navigation_menu" />
 
     </LinearLayout>
