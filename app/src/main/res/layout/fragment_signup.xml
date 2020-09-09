@@ -29,23 +29,14 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/Title"
                     android:layout_gravity="center_horizontal"
-                    android:fontFamily="@font/noto_bold"
-                    android:includeFontPadding="false"
-                    android:text="@string/text_sign_up"
-                    android:textColor="#000000"
-                    android:textSize="24sp" />
+                    android:text="@string/text_sign_up" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:fontFamily="@font/noto_medium"
-                    android:includeFontPadding="false"
-                    android:text="@string/text_email"
-                    android:textSize="16sp" />
+                    style="@style/EditTextTitle"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/text_email" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/emailInputLayout"
@@ -74,13 +65,9 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/EditTextTitle"
                     android:layout_marginTop="4dp"
-                    android:fontFamily="@font/noto_medium"
-                    android:includeFontPadding="false"
-                    android:text="@string/text_password"
-                    android:textSize="16sp" />
+                    android:text="@string/text_password" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/passwordInputLayout"

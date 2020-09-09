@@ -25,7 +25,7 @@
         <item name="android:textColor">#BBBBBB</item>
     </style>
 
-    <style name="TitleText" parent="TextTheme">
+    <style name="HeadTitle" parent="TextTheme">
         <item name="fontFamily">@font/noto_bold</item>
         <item name="android:textSize">20sp</item>
     </style>
@@ -35,7 +35,7 @@
         <item name="android:textSize">20sp</item>
     </style>
 
-    <style name="ContentText" parent="TextTheme">
+    <style name="Content" parent="TextTheme">
         <item name="fontFamily">@font/noto_medium</item>
         <item name="android:textSize">12sp</item>
         <item name="android:lineSpacingExtra">8dp</item>
