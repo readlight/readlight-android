@@ -42,6 +42,11 @@
         android:name="com.readlab.readlight.presentation.ui.onboard.fragment.signup.SignUpFragment"
         tools:layout="@layout/fragment_signup">
 
+        <action
+            android:id="@+id/action_login_fragment_to_signup_fragment"
+            app:destination="@id/signup_fragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
     </fragment>
 
 </navigation>

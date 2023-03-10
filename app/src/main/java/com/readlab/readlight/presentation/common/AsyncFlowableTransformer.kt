@@ -6,12 +6,12 @@ import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.core.SingleSource
 import io.reactivex.rxjava3.schedulers.Schedulers
 
-class AsyncFlowableTransformer<T> : SingleRxTransformer<T>() {
+class AsyncFlowableTransformer<T : Any> : SingleRxTransformer<T>() {
     override fun apply(upstream: Single<T>): SingleSource<T> {
         return upstream.async()
     }
 }
 
-fun <T> Single<T>.async(): Single<T> {
+fun <T : Any> Single<T>.async(): Single<T> {
     return this.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
 }

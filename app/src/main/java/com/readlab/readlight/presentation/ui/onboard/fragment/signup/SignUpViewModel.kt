@@ -1,7 +1,7 @@
 package com.readlab.readlight.presentation.ui.onboard.fragment.signup
 
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
+import androidx.lifecycle.map
 import com.orhanobut.logger.Logger
 import com.readlab.readlight.domain.model.TokenResult
 import com.readlab.readlight.domain.repositories.SignUpQuery
@@ -20,10 +20,10 @@ class SignUpViewModel(private val userUseCase: UserUseCase) : BaseViewModel() {
     val isTermAgreed = MutableLiveData(false)
     val isAlarmReceptionAgreed = MutableLiveData(false)
 
-    val isEmailValid = Transformations.map(email) {
+    val isEmailValid = email.map {
         return@map SignUpQuery.isEmailValid(it)
     }
-    val isPasswordValid = Transformations.map(password) {
+    val isPasswordValid = password.map {
         return@map SignUpQuery.isPasswordValid(it)
     }
 

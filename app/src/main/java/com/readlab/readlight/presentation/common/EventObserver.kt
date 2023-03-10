@@ -3,17 +3,18 @@ package com.readlab.readlight.presentation.common
 import androidx.lifecycle.Observer
 
 class EventObserver<T>(private val onEventUnhandledContent: (T?) -> Unit) : Observer<Event<T>> {
-    override fun onChanged(event: Event<T>?) {
-        event ?: return
+    override fun onChanged(value: Event<T>) {
+        value ?: return
 
-        if (event.content == null && !event.hasBeenHandled) {
-            event.getContentIfNotHandled()
+        if (value.content == null && !value.hasBeenHandled) {
+            value.getContentIfNotHandled()
             onEventUnhandledContent(null)
             return
         }
 
-        event.getContentIfNotHandled()?.let { value ->
+        value.getContentIfNotHandled()?.let { value ->
             onEventUnhandledContent(value)
         }
     }
+
 }
